@@ -19,7 +19,7 @@ const Filters = (props) => {
                 </select>
             </div>
             <div className="col-md-3">
-                <button className="btn btn-default btn-block">Load</button>
+                <button className="btn btn-default btn-block" onClick={ props.getText } disabled={ props.redux.loading }>Load</button>
             </div>
         </div>
     );

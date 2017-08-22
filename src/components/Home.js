@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Filters from './Filters';
+import Text from './Text';
 
 class Home extends Component {
+    constructor() {
+        super();
+
+        this.getText = this.getText.bind(this);
+    }
+
+    getText() {
+        this.props.setLoading(true);
+
+        setTimeout(() => {
+            fetch('https://baconipsum.com/api/?type=' + this.props.type + '&paras=' + this.props.paras + '&start-with-lorem=' + this.props.startWithLorem)
+                .then(response => response.json())
+                .then(response => {
+                    this.props.changeText(response);
+                })
+            ;
+
+            this.props.setLoading(false);
+        }, 2000);
+    }
+
     render() {
         return (
             <div>
-                <Filters redux={ this.props } />
-                <h1>Home</h1>
+                <Filters redux={ this.props } getText={ this.getText } />
+                <hr />
+                <Text text={ this.props.text } />
             </div>
         );
     }
@@ -15,9 +38,11 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        type: state.type,
-        paras: state.paras,
-        startWithLorem: state.startWithLorem
+        type:           state.type,
+        paras:          state.paras,
+        startWithLorem: state.startWithLorem,
+        loading:        state.loading,
+        text:           state.text
     };
 };
 
@@ -39,6 +64,18 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({
                 type: 'CHANGE_STARTWITHLOREM',
                 payload: event.target.value
+            });
+        },
+        setLoading: (value) => {
+            dispatch({
+                type: 'SET_LOADING',
+                payload: value
+            });
+        },
+        changeText: (text) => {
+            dispatch({
+                type: 'CHANGE_TEXT',
+                payload: text
             });
         }
     };
