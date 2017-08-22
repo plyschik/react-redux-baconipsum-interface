@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 import Home from './Home';
 import About from './About';
 
-class App extends Component {
+export default class App extends Component {
     render() {
         return (
             <BrowserRouter>
@@ -20,36 +19,3 @@ class App extends Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        type: state.type,
-        paras: state.paras,
-        startWithLorem: state.startWithLorem
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        changeType: (type) => {
-            dispatch({
-                type: 'CHANGE_TYPE',
-                payload: type
-            });
-        },
-        changeParas: (paras) => {
-            dispatch({
-                type: 'CHANGE_PARAS',
-                payload: paras
-            });
-        },
-        changeStartWithLorem: (startWithLorem) => {
-            dispatch({
-                type: 'CHANGE_STARTWITHLOREM',
-                payload: startWithLorem
-            });
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);

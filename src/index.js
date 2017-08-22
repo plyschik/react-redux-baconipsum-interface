@@ -7,9 +7,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const reducer = (state = {
-    type: 'meat-and-filler',
+    type: 'all-meat',
     paras: 4,
-    startWithLorem: 1
+    startWithLorem: 0
 }, action) => {
     switch (action.type) {
         case 'CHANGE_TYPE':
