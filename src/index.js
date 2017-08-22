@@ -32,16 +32,16 @@ const reducer = (state = {
                 startWithLorem: action.payload
             };
         break;
-        case 'CHANGE_TEXT':
-            state = {
-                ...state,
-                text: action.payload
-            };
-        break;
         case 'SET_LOADING':
             state = {
                 ...state,
                 loading: action.payload
+            };
+            break;
+        case 'CHANGE_TEXT':
+            state = {
+                ...state,
+                text: action.payload
             };
         break;
     }

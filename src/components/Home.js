@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Filters from './Filters';
-import Text from './Text';
+import List from './List';
 
 class Home extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.getText = this.getText.bind(this);
     }
@@ -27,7 +27,7 @@ class Home extends Component {
             <div>
                 <Filters redux={ this.props } getText={ this.getText } />
                 <hr />
-                <Text text={ this.props.text } />
+                <List text={ this.props.text } />
             </div>
         );
     }
