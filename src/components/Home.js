@@ -13,16 +13,13 @@ class Home extends Component {
     getText() {
         this.props.setLoading(true);
 
-        setTimeout(() => {
-            fetch('https://baconipsum.com/api/?type=' + this.props.type + '&paras=' + this.props.paras + '&start-with-lorem=' + this.props.startWithLorem)
-                .then(response => response.json())
-                .then(response => {
-                    this.props.changeText(response);
-                })
-            ;
-
-            this.props.setLoading(false);
-        }, 2000);
+        fetch('https://baconipsum.com/api/?type=' + this.props.type + '&paras=' + this.props.paras + '&start-with-lorem=' + this.props.startWithLorem)
+            .then(response => response.json())
+            .then(response => {
+                this.props.changeText(response);
+                this.props.setLoading(false);
+            })
+        ;
     }
 
     render() {
