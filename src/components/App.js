@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
 
 class App extends Component {
     render() {
         return (
-            <h1>react-redux-baconipsum-interface</h1>
+            <BrowserRouter>
+                <div>
+                    <Route exact path="/" component={ Home } />
+                    <Route exact path="/about" component={ About } />
+                </div>
+            </BrowserRouter>
         );
     }
 }
