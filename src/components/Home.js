@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Filters from './Filters';
 import List from './List';
+import Loading from './Loading';
 
 class Home extends Component {
     constructor(props) {
@@ -23,13 +24,24 @@ class Home extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Filters redux={ this.props } getText={ this.getText } />
-                <hr />
-                <List text={ this.props.text } />
-            </div>
-        );
+        if (!this.props.loading) {
+            return (
+                <div>
+                    <Filters redux={ this.props } getText={ this.getText } />
+                    <hr />
+                    <List text={ this.props.text } />
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Filters redux={ this.props } getText={ this.getText } />
+                    <hr />
+                    <List text={ this.props.text } />
+                    <Loading />
+                </div>
+            );
+        }
     }
 }
 
