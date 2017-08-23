@@ -15,9 +15,7 @@ const reducer = (state = {
 }, action) => {
     switch (action.type) {
         case 'CHANGE_TYPE':
-            var validValues = ['all-meat', 'meat-and-filler'];
-
-            if (validValues.indexOf(action.payload) >= 0) {
+            if (['all-meat', 'meat-and-filler'].indexOf(action.payload) >= 0) {
                 state = {
                     ...state,
                     type: action.payload
@@ -33,9 +31,7 @@ const reducer = (state = {
             }
         break;
         case 'CHANGE_STARTWITHLOREM':
-            var validValues = ['0', '1'];
-
-            if (validValues.indexOf(action.payload) >= 0) {
+            if (['0', '1'].indexOf(action.payload) >= 0) {
                 state = {
                     ...state,
                     startWithLorem: action.payload
