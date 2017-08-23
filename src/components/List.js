@@ -8,7 +8,7 @@ const List = (props) => {
         return (
             <div>
                 <hr />
-                { props.text.map((text) => <Text text={ text } />) }
+                { props.text.map((text, index) => <Text index={ index + 1 } text={ text } />) }
             </div>
         );
     }

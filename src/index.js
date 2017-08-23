@@ -15,29 +15,41 @@ const reducer = (state = {
 }, action) => {
     switch (action.type) {
         case 'CHANGE_TYPE':
-            state = {
-                ...state,
-                type: action.payload
-            };
+            var validValues = ['all-meat', 'meat-and-filler'];
+
+            if (validValues.indexOf(action.payload) >= 0) {
+                state = {
+                    ...state,
+                    type: action.payload
+                };
+            }
         break;
         case 'CHANGE_PARAS':
-            state = {
-                ...state,
-                paras: action.payload
-            };
+            if (action.payload > 0 && action.payload <= 100) {
+                state = {
+                    ...state,
+                    paras: action.payload
+                };
+            }
         break;
         case 'CHANGE_STARTWITHLOREM':
-            state = {
-                ...state,
-                startWithLorem: action.payload
-            };
+            var validValues = ['0', '1'];
+
+            if (validValues.indexOf(action.payload) >= 0) {
+                state = {
+                    ...state,
+                    startWithLorem: action.payload
+                };
+            }
         break;
         case 'SET_LOADING':
-            state = {
-                ...state,
-                loading: action.payload
-            };
-            break;
+            if (typeof(action.payload) === 'boolean') {
+                state = {
+                    ...state,
+                    loading: action.payload
+                };
+            }
+        break;
         case 'CHANGE_TEXT':
             state = {
                 ...state,
