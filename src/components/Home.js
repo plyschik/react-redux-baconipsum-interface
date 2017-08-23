@@ -24,24 +24,13 @@ class Home extends Component {
     }
 
     render() {
-        if (!this.props.loading) {
-            return (
-                <div>
-                    <Filters redux={ this.props } getText={ this.getText } />
-                    <hr />
-                    <List text={ this.props.text } />
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <Filters redux={ this.props } getText={ this.getText } />
-                    <hr />
-                    <List text={ this.props.text } />
-                    <Loading />
-                </div>
-            );
-        }
+        return (
+            <div>
+                <Filters redux={ this.props } getText={ this.getText } />
+                <List text={ this.props.text } />
+                <Loading loading={ this.props.loading } />
+            </div>
+        );
     }
 }
 
