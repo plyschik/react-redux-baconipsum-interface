@@ -6,7 +6,7 @@ const Filters = (props) => {
             <div className="col-md-3">
                 <div className="form-group">
                     <label>Type:</label>
-                    <select className="form-control fluid" value={ props.redux.type } onChange={ props.redux.changeType }>
+                    <select className="form-control fluid" value={ props.type } onChange={ props.setType }>
                         <option value="all-meat">all-meat</option>
                         <option value="meat-and-filler">meat-and-filler</option>
                     </select>
@@ -15,13 +15,13 @@ const Filters = (props) => {
             <div className="col-md-3">
                 <div className="form-group">
                     <label>Paras:</label>
-                    <input className="form-control fluid" type="number" min="1" max="100" value={ props.redux.paras } onChange={ props.redux.changeParas } />
+                    <input className="form-control fluid" type="number" min="1" max="100" value={ props.paras } onChange={ props.setParas } />
                 </div>
             </div>
             <div className="col-md-3">
                 <div className="form-group">
                     <label>Start with lorem:</label>
-                    <select className="form-control fluid" value={ props.redux.startWithLorem } onChange={ props.redux.changeStartWithLorem }>
+                    <select className="form-control fluid" value={ props.startWithLorem } onChange={ props.setStartWithLorem }>
                         <option value="0">No</option>
                         <option value="1">Yes</option>
                     </select>
@@ -30,11 +30,11 @@ const Filters = (props) => {
             <div className="col-md-3">
                 <div className="form-group">
                     <label>&nbsp;</label>
-                    <button className="btn btn-default btn-block" onClick={ props.getText } disabled={ props.redux.loading }>Load</button>
+                    <button className="btn btn-default btn-block" onClick={ props.fetchAPI } disabled={ props.loading }>Load</button>
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
 export default Filters;

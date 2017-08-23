@@ -8,7 +8,7 @@ const About = () => {
                 BaconIpsum interface was built with React, React router and Redux.
             </p>
         </div>
-    );
+    )
 };
 
 export default About;
