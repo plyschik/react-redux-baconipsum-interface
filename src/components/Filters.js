@@ -15,7 +15,7 @@ const Filters = (props) => {
             <div className="col-md-3">
                 <div className="form-group">
                     <label>Paras:</label>
-                    <input className="form-control fluid" type="text" value={ props.redux.paras } onChange={ props.redux.changeParas } />
+                    <input className="form-control fluid" type="number" min="1" max="100" value={ props.redux.paras } onChange={ props.redux.changeParas } />
                 </div>
             </div>
             <div className="col-md-3">

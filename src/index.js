@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import registerServiceWorker from './registerServiceWorker';
 
 const reducer = (state = {
     type:           'all-meat',
@@ -56,3 +57,5 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
+
+registerServiceWorker();
