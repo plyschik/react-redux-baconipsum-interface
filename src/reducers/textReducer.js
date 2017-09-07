@@ -1,52 +1,57 @@
+import * as actions from './../constants';
+
 const textReducer = (state = {
-    type:           'all-meat',
-    paras:          1,
+    loading: false,
+    type: 'all-meat',
+    paras: 1,
     startWithLorem: 0,
-    loading:        false,
-    text:           []
+    text: []
 }, action) => {
     switch (action.type) {
-        case 'SET_TYPE':
-            if (['all-meat', 'meat-and-filler'].indexOf(action.payload) >= 0) {
-                state = {
-                    ...state,
-                    type: action.payload
-                };
+        case actions.SET_LOADING:
+            if (typeof(action.payload) !== 'boolean') {
+                return state;
             }
-        break;
-        case 'SET_PARAS':
-            if (action.payload > 0 && action.payload <= 100) {
-                state = {
-                    ...state,
-                    paras: action.payload
-                };
+
+            return {
+                ...state,
+                loading: action.payload
+            };
+        case actions.SET_TYPE:
+            if (['all-meat', 'meat-and-filler'].indexOf(action.payload) < 0) {
+                return state;
             }
-        break;
-        case 'SET_STARTWITHLOREM':
-            if (['0', '1'].indexOf(action.payload) >= 0) {
-                state = {
-                    ...state,
-                    startWithLorem: action.payload
-                };
+
+            return {
+                ...state,
+                type: action.payload
+            };
+        case actions.SET_PARAS:
+            if (action.payload <= 0 && action.payload > 100) {
+                return state;
             }
-        break;
-        case 'SET_LOADING':
-            if (typeof(action.payload) === 'boolean') {
-                state = {
-                    ...state,
-                    loading: action.payload
-                };
+
+            return {
+                ...state,
+                paras: action.payload
+            };
+        case actions.SET_STARTWITHLOREM:
+            if (['0', '1'].indexOf(action.payload) < 0) {
+                return state;
             }
-        break;
-        case 'SET_TEXT':
-            state = {
+
+            return {
+                ...state,
+                startWithLorem: action.payload
+            };
+        case actions.SET_TEXT:
+            return {
                 ...state,
                 text: action.payload
             };
-        break;
+        default:
+            return state;
     }
-
-    return state;
 };
 
 export default textReducer;

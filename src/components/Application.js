@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navigation from './Navigation';
-import Home from './../containers/Home';
+import Home from './../components/Home';
 import About from './About';
 
-const App = () => {
+const Application = () => {
     return (
         <BrowserRouter>
             <div>
@@ -18,4 +18,4 @@ const App = () => {
     )
 };
 
-export default App;
+export default Application;
