@@ -1,2 +1,2 @@
 # react-redux-baconipsum-interface
-[BaconIpsum API](https://baconipsum.com/) user interface made with [react](https://github.com/facebook/react), [redux](https://github.com/reactjs/redux), [react-redux](https://github.com/reactjs/react-redux) [redux-thunk](https://github.com/gaearon/redux-thunk) and [react-router](https://github.com/ReactTraining/react-router).
+[BaconIpsum API](https://baconipsum.com/) user interface made with [react](https://github.com/facebook/react), [redux](https://github.com/reactjs/redux), [react-redux](https://github.com/reactjs/react-redux), [redux-thunk](https://github.com/gaearon/redux-thunk) and [react-router](https://github.com/ReactTraining/react-router).
