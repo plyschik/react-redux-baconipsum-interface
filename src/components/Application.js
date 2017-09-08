@@ -4,18 +4,16 @@ import Navigation from './Navigation';
 import Home from './../components/Home';
 import About from './About';
 
-const Application = () => {
-    return (
-        <BrowserRouter>
-            <div>
-                <Navigation />
-                <div className="container">
-                    <Route exact path="/" component={ Home } />
-                    <Route exact path="/about" component={ About } />
-                </div>
+const Application = () => ((
+    <BrowserRouter>
+        <div>
+            <Navigation />
+            <div className="container">
+                <Route exact path="/" component={ Home } />
+                <Route exact path="/about" component={ About } />
             </div>
-        </BrowserRouter>
-    )
-};
+        </div>
+    </BrowserRouter>
+));
 
 export default Application;
